@@ -1,0 +1,287 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>@ViewData["Title"] - ResQLink Admin</title>
+	<link href="~/css/layout.css" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+	<div class="layout">
+		<aside class="sidebar">
+			<div class="logo">
+				<img src="~/images/resqlink-logo.png" alt="ResQLink" />
+			</div>
+			<nav class="sidebar-nav">
+				<ul>
+					@if (User.IsInRole("Admin"))
+					{
+						<li>
+							<a asp-controller="Admin" asp-action="Dashboard">
+								<i class="fas fa-chart-pie"></i> Dashboard
+							</a>
+						</li>
+
+						<li class="has-submenu">
+							<a href="#">
+								<i class="fas fa-car"></i> Service
+								<span class="arrow">&#9662;</span> <!-- ▼ -->
+							</a>
+							<ul class="submenu">
+								<li><a asp-controller="Admin" asp-action="ServiceList">Service List</a></li>
+							</ul>
+						</li>
+
+						<li class="has-submenu">
+							<a href="#">
+								<i class="fas fa-car"></i> Responder
+								<span class="arrow">&#9662;</span> <!-- ▼ -->
+							</a>
+							<ul class="submenu">
+								<li><a asp-controller="Admin" asp-action="ResponderList">Responder List</a></li>
+								<li><a asp-controller="Admin" asp-action="PendingResponder">Pending Responder</a></li>
+								<li><a asp-controller="Admin" asp-action="AddResponder">Add Responder</a></li>
+								<li><a asp-controller="Admin" asp-action="ResponderDocument">Responder Document</a></li>
+							</ul>
+						</li>
+
+						<li class="has-submenu">
+							<a href="#">
+								<i class="fas fa-file-alt"></i> Document
+								<span class="arrow">&#9662;</span>
+							</a>
+							<ul class="submenu">
+								<li><a asp-controller="Admin" asp-action="DocumentList">Document List</a></li>
+								<li><a asp-controller="Admin" asp-action="AddDocument">Add new Document</a></li>
+							</ul>
+						</li>
+
+						<li class="has-submenu">
+							<a href="#">
+								<i class="fas fa-money-check-alt"></i> Withdraw Request
+								<span class="arrow">&#9662;</span>
+							</a>
+							<ul class="submenu">
+								<li><a asp-controller="Admin" asp-action="Withdraw Request List">All Payment List</a></li>
+								<li><a asp-controller="Admin" asp-action="PendingRequestList">Pending List</a></li>
+								<li><a asp-controller="Admin" asp-action="">Approve List</a></li>
+								<li><a asp-controller="Admin" asp-action="">Cancelled Request</a></li>
+							</ul>
+						</li>
+
+						<li class="has-submenu">
+							<a href="#">
+								<i class="fas fa-money-check-alt"></i> Payment
+								<span class="arrow">&#9662;</span>
+							</a>
+							<ul class="submenu">
+								<li><a asp-controller="Admin" asp-action="">Online Payment</a></li>
+								<li><a asp-controller="Admin" asp-action="">Cash Payment</a></li>
+								<li><a asp-controller="Admin" asp-action="">Wallet Payment</a></li>
+							</ul>
+						</li>
+
+						<li class="has-submenu">
+							<a href="#">
+								<i class="fas fa-money-check-alt"></i> Report
+								<span class="arrow">&#9662;</span>
+							</a>
+							<ul class="submenu">
+								<li><a asp-controller="Admin" asp-action="">Responder Earning Report</a></li>
+								<li><a asp-controller="Admin" asp-action="">Service Wise Report </a></li>
+							</ul>
+						</li>
+
+						<li class="has-submenu">
+							<a href="#">
+								<i class="fas fa-money-check-alt"></i> Pages
+								<span class="arrow">&#9662;</span>
+							</a>
+							<ul class="submenu">
+								<li><a asp-controller="Admin" asp-action="">Page List</a></li>
+								<li><a asp-controller="Admin" asp-action="">Terms and Conditions </a></li>
+								<li><a asp-controller="Admin" asp-action="">Privacy Policy </a></li>
+							</ul>
+						</li>
+
+						<li class="has-submenu">
+							<a href="#">
+								<i class="fas fa-money-check-alt"></i> Responder Locations
+								<span class="arrow">&#9662;</span>
+							</a>
+						</li>
+
+						<li class="has-submenu">
+							<a href="#">
+								<i class="fas fa-money-check-alt"></i> Settings
+								<span class="arrow">&#9662;</span>
+							</a>
+						</li>
+					}
+					else if (User.IsInRole("Med Emergency Responder"))
+					{
+						<!-- Med Emergency Sidebar -->
+						<li>
+							<a asp-controller="Responder" asp-action="Dashboard">
+								<i class="fas fa-heartbeat"></i> Dashboard
+							</a>
+						</li>
+
+						<li>
+							<a asp-controller="MedResponder" asp-action="Index">
+								<i class="fas fa-notes-medical"></i> Medical Emergency Responder
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Booking History
+							</a>
+						</li>
+					}
+					else if (User.IsInRole("Tow Emergency Responder"))
+					{
+						<li>
+							<a asp-controller="Responder" asp-action="Dashboard">
+								<i class="fas fa-heartbeat"></i> Dashboard
+							</a>
+						</li>
+
+						<li>
+							<a asp-controller="MedResponder" asp-action="Index">
+								<i class="fas fa-notes-medical"></i> Medical Emergency Responder
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Ride Request
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Payment
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Report
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Responder Locations
+							</a>
+						</li>
+					}
+					else if (User.IsInRole("Firetruck Emergency Responder"))
+					{
+						<li>
+							<a asp-controller="Responder" asp-action="Dashboard">
+								<i class="fas fa-heartbeat"></i> Dashboard
+							</a>
+						</li>
+
+						<li>
+							<a asp-controller="MedResponder" asp-action="Index">
+								<i class="fas fa-notes-medical"></i> Medical Emergency Responder
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Ride Request
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Payment
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Report
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Responder Locations
+							</a>
+						</li>
+					}
+					else if (User.IsInRole("Security Emergency Responder"))
+					{
+						<li>
+							<a asp-controller="Responder" asp-action="Dashboard">
+								<i class="fas fa-heartbeat"></i> Dashboard
+							</a>
+						</li>
+
+						<li>
+							<a asp-controller="MedResponder" asp-action="Index">
+								<i class="fas fa-notes-medical"></i> Medical Emergency Responder
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Ride Request
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Payment
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Report
+							</a>
+						</li>
+						<li>
+							<a asp-controller="Responder" asp-action="Documents">
+								<i class="fas fa-file-alt"></i> Responder Locations
+							</a>
+						</li> 
+					}
+				</ul>
+			</nav>
+
+		</aside>
+
+		<div class="main-content">
+			<header class="top-nav">
+				<div class="nav-left">
+					<i class="fas fa-bars" id="toggle-sidebar"></i>
+				</div>
+				<div class="nav-right">
+					<i class="fas fa-user-circle profile-icon"></i>
+				</div>
+			</header>
+
+			<main class="content-wrapper">
+				@RenderBody()
+			</main>
+		</div>
+	</div>
+
+	@RenderSection("Scripts", required: false)
+	<script>
+		document.querySelectorAll('.sidebar-nav .has-submenu > a').forEach(link => {
+			link.addEventListener('click', function (e) {
+				e.preventDefault();
+				const parentLi = this.parentElement;
+				parentLi.classList.toggle('active');
+			});
+		});
+	</script>
+
+
+	<script>
+		document.getElementById("toggle-sidebar").addEventListener("click", () => {
+			document.querySelector(".sidebar").classList.toggle("collapsed");
+		});
+	</script>
+</body>
+</html>

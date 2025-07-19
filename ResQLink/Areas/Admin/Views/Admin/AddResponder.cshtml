@@ -1,0 +1,136 @@
+﻿@model ResQLink.DTOs.AddResponderDto
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Add Responder</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+	<link href="~/css/add-responder.css" rel="stylesheet" />
+</head>
+<body>
+	<div class="back-btn">
+		@* <button>&#8630; Back</button> *@
+		<a asp-action="ResponderList">&#8630; Back</a>
+	</div>
+
+	<form asp-action="AddResponder" asp-controller="Admin" asp-area="Admin" method="post" enctype="multipart/form-data">
+		@Html.AntiForgeryToken()
+
+		<div class="container">
+			<div class="card">
+				<h2>Add Responder</h2>
+
+				<div class="form-field">
+					<label asp-for="Role">Select Role*</label>
+					<select asp-for="Role" onchange="toggleResponderFields(this)">
+						<option value="">-- Select Role --</option>
+						<option value="Admin">Admin</option>
+						<option value="Med Emergency Responder">Med Emergency Responder</option>
+						<option value="Tow Emergency Responder">Tow Emergency Responder</option>
+						<option value="Firetruck Emergency Responder">Firetruck Emergency Responder</option>
+						<option value="Security Emergency Responder">Security Emergency Responder</option>
+					</select>
+				</div>
+
+				<div class="image-upload responder-only">
+					<input asp-for="Photo" type="file" accept="image/*" />
+					<div class="upload-info">Only <span style="color:#d21e2b">png, jpg, jpeg, gif</span> Allowed</div>
+				</div>
+
+				<div class="status responder-only">
+					<label><input type="radio" asp-for="Status" value="Active" /> Active</label>
+					<label><input type="radio" asp-for="Status" value="Pending" /> Pending</label>
+					<label><input type="radio" asp-for="Status" value="Inactive" /> Inactive</label>
+					<label><input type="radio" asp-for="Status" value="Reject" /> Reject</label>
+					<label><input type="radio" asp-for="Status" value="Banned" /> Banned</label>
+				</div>
+			</div>
+
+			<div class="form-section">
+				<h2>User Information</h2>
+				<div class="form-group">
+					<div class="form-field">
+						<label asp-for="FirstName">First Name*</label>
+						<input asp-for="FirstName" type="text" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="LastName">Last Name*</label>
+						<input asp-for="LastName" type="text" />
+					</div>
+					<div class="form-field">
+						<label asp-for="Email">Email*</label>
+						<input asp-for="Email" type="email" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="UserName">Username*</label>
+						<input asp-for="UserName" type="text" />
+					</div>
+					<div class="form-field">
+						<label asp-for="Password">Password*</label>
+						<input asp-for="Password" type="password" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="ContactNumber">Contact Number*</label>
+						<input asp-for="ContactNumber" type="text" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="ServiceType">Service Type*</label>
+						<input asp-for="ServiceType" type="text" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="PlateNumber">Plate Number*</label>
+						<input asp-for="PlateNumber" type="text" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="BankName">Bank Name*</label>
+						<input asp-for="BankName" type="text" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="AccountNumber">Account Number*</label>
+						<input asp-for="AccountNumber" type="text" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="BankIBAN">Bank IBAN*</label>
+						<input asp-for="BankIBAN" type="text" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="RoutingNumber">Routing Number*</label>
+						<input asp-for="RoutingNumber" type="text" />
+					</div>
+					<div class="form-field responder-only">
+						<label asp-for="BankSwift">Bank Swift*</label>
+						<input asp-for="BankSwift" type="text" />
+					</div>
+					<div class="form-field responder-only" style="flex: 1 1 100%;">
+						<label asp-for="Address">Address*</label>
+						<input asp-for="Address" type="text" />
+					</div>
+				</div>
+
+				<div class="save-btn">
+					<button type="submit">Save</button>
+				</div>
+			</div>
+		</div>
+	</form>
+
+	<script>
+		function toggleResponderFields(select) {
+			const value = select.value;
+			const responderFields = document.querySelectorAll('.responder-only');
+
+			responderFields.forEach(el => {
+				el.style.display = (value !== 'Admin') ? 'block' : 'none';
+			});
+		}
+
+		// Auto-trigger on page load if editing or preserving selection
+		document.addEventListener("DOMContentLoaded", function () {
+			const roleSelect = document.querySelector('select[name="Role"]');
+			if (roleSelect) toggleResponderFields(roleSelect);
+		});
+	</script>
+
+</body>
+</html>

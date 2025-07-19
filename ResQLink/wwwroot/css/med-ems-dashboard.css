@@ -1,0 +1,45 @@
+﻿body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+.main-content {
+    padding: 30px;
+    background: #f9f9f9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.service-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+    .service-card .icon {
+        font-size: 36px;
+    }
+
+    .service-card .text h3 {
+        margin: 0 0 5px;
+        font-size: 20px;
+    }
+
+    .service-card .text p {
+        margin: 0;
+        color: #666;
+        font-size: 14px;
+    }
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+}

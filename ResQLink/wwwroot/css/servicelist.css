@@ -1,0 +1,74 @@
+﻿.service-wrapper {
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    border: 1px solid #a00;
+    margin: 1rem;
+}
+
+    .service-wrapper h2 {
+        color: #a00;
+        margin-bottom: 1rem;
+    }
+
+.table-controls {
+    margin-bottom: 1rem;
+}
+
+.entries-select {
+    margin-left: 0.5rem;
+    padding: 0.3rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.service-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+    .service-table th, .service-table td {
+        padding: 0.75rem 1rem;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .service-table th {
+        background-color: #eee;
+        color: #333;
+        font-weight: bold;
+    }
+
+.action-btn {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    text-decoration: none;
+    padding: 0.3rem;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+    .action-btn.edit {
+        color: #6a1b9a;
+    }
+
+    .action-btn.delete {
+        color: #d32f2f;
+    }
+
+@media (max-width: 768px) {
+    .service-table th, .service-table td {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+
+    .entries-select {
+        width: 100px;
+    }
+}

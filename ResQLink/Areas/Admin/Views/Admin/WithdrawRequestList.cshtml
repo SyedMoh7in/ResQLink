@@ -1,0 +1,73 @@
+﻿<link href="~/css/withdraw-request-list.css" rel="stylesheet" />
+<div class="withdraw-wrapper">
+    <h2>Withdraw Request List</h2>
+
+    <div class="table-controls">
+        <label>
+            Show
+            <select class="entries-select">
+                <option>10</option>
+                <option>50</option>
+                <option>100</option>
+                <option>500</option>
+                <option>All</option>
+            </select>
+            entries
+        </label>
+
+        <div class="search-box">
+            <input type="text" placeholder="Search" />
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="withdraw-table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Available balance</th>
+                    <th>Request Date</th>
+                    <th>Last Action Date</th>
+                    <th>Bank Detail</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample rows -->
+                <tr>
+                    <td>1.</td>
+                    <td><a href="#">J Helena</a></td>
+                    <td>10.00₦</td>
+                    <td>-</td>
+                    <td>February 17, 2025 3:44 PM</td>
+                    <td>Feb 02, 2025 10:52am</td>
+                    <td><i class="icon-eye">👁️</i></td>
+                    <td><span class="status-approved">Approved</span></td>
+                    <td>
+                        <a href="#" class="action-btn edit">✏️</a>
+                        <a href="#" class="action-btn delete">🗑️</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td><a href="#">eleolo loko</a></td>
+                    <td>10.00₦</td>
+                    <td>-</td>
+                    <td>February 17, 2025 3:44 PM</td>
+                    <td>Feb 02, 2025 10:52am</td>
+                    <td><i class="icon-eye">👁️</i></td>
+                    <td><span class="status-declined">Decline</span></td>
+                    <td>
+                        <a href="#" class="action-btn edit">✏️</a>
+                        <a href="#" class="action-btn delete">🗑️</a>
+                    </td>
+                </tr>
+                <!-- Repeat similar rows for all 9 entries shown in image -->
+            </tbody>
+        </table>
+        <div class="entries-info">Showing 1 to 10 of 27 entries</div>
+    </div>
+</div>

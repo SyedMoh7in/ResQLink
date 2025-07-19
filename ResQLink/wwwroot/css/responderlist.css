@@ -1,0 +1,131 @@
+﻿.content-container {
+    padding: 1rem;
+}
+
+.card-wrapper {
+    background: #f7f7f7;
+    border-radius: 10px;
+    border: 1px solid #d70000;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+    .card-header h3 {
+        color: #a00000;
+        margin: 0;
+    }
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #a00000;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+    .btn:hover {
+        background-color: #880000;
+    }
+
+.table-tools {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.entries-control select,
+.search-input {
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.responder-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+    .responder-table th, .responder-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .responder-table th {
+        background: #eee;
+        font-weight: bold;
+    }
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+}
+
+    .badge.active {
+        background-color: #4caf50;
+    }
+
+    .badge.pending {
+        background-color: #ff9800;
+    }
+
+    .badge.blocked {
+        background-color: #f44336;
+    }
+
+.action-icon {
+    margin-right: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+}
+
+    .action-icon:hover {
+        opacity: 0.7;
+    }
+
+@media (max-width: 768px) {
+    .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .table-tools {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .entries-control,
+    .search-box {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+}

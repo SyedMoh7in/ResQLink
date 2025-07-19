@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+	<link href="~/css/document-list.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="doc-container">
+        <div class="doc-header">
+            <h2>Document List</h2>
+            <div class="doc-actions">
+                <button class="add-btn">➕ Add Document</button>
+            </div>
+        </div>
+
+        <div class="doc-controls">
+            <label for="entries">
+                Show
+                <select id="entries">
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                    <option value="all">All</option>
+                </select>
+                entries
+            </label>
+            <input type="text" placeholder="Search">
+        </div>
+
+        <div class="doc-table-wrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Name</th>
+                        <th>Is Required</th>
+                        <th>Has Expired Date</th>
+                        <th>Created Date</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>ID Document</td>
+                        <td><span class="badge red">No</span></td>
+                        <td><span class="badge green">Yes</span></td>
+                        <td>March 02, 2025 10:25am</td>
+                        <td></td>
+                        <td class="action-icons">✏️ 🗑️</td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Vehicle Inspection Certificate</td>
+                        <td><span class="badge red">No</span></td>
+                        <td><span class="badge green">Yes</span></td>
+                        <td>March 02, 2025 10:24am</td>
+                        <td></td>
+                        <td class="action-icons">✏️ 🗑️</td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Road Tax</td>
+                        <td><span class="badge red">No</span></td>
+                        <td><span class="badge green">Yes</span></td>
+                        <td>March 02, 2025 10:23am</td>
+                        <td></td>
+                        <td class="action-icons">✏️ 🗑️</td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>Insurance Certificate</td>
+                        <td><span class="badge red">No</span></td>
+                        <td><span class="badge green">Yes</span></td>
+                        <td>March 02, 2025 10:22am</td>
+                        <td></td>
+                        <td class="action-icons">✏️ 🗑️</td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td>Vehicle Registration Certificate</td>
+                        <td><span class="badge red">No</span></td>
+                        <td><span class="badge red">No</span></td>
+                        <td>March 02, 2025 10:22am</td>
+                        <td></td>
+                        <td class="action-icons">✏️ 🗑️</td>
+                    </tr>
+                    <tr>
+                        <td>6.</td>
+                        <td>Responder License</td>
+                        <td><span class="badge green">Yes</span></td>
+                        <td><span class="badge green">Yes</span></td>
+                        <td>March 02, 2025 10:20am</td>
+                        <td></td>
+                        <td class="action-icons">✏️ 🗑️</td>
+                    </tr>
+                    <tr>
+                        <td>7.</td>
+                        <td>License</td>
+                        <td><span class="badge red">No</span></td>
+                        <td><span class="badge green">Yes</span></td>
+                        <td>March 01, 2025 10:25am</td>
+                        <td><span class="dot-status"></span></td>
+                        <td class="action-icons">✏️ 🗑️</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

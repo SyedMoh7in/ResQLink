@@ -1,0 +1,115 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #d3d3d3;
+    padding: 20px;
+}
+
+.doc-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.doc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+    .doc-header h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+.doc-actions button {
+    background-color: #d21e2b;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.doc-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+    .doc-controls label,
+    .doc-controls input {
+        font-size: 0.9rem;
+    }
+
+    .doc-controls select {
+        padding: 5px;
+        border-radius: 5px;
+        margin: 0 5px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+    }
+
+    .doc-controls input[type=\"text\"] {
+        padding: 8px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+    }
+
+.doc-table-wrapper {
+    overflow-x: auto;
+}
+
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .doc-table thead {
+        background-color: #d21e2b;
+        color: white;
+    }
+
+    .doc-table th,
+    .doc-table td {
+        padding: 12px 15px;
+        border: 1px solid #d21e2b;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    .doc-table tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+.verified {
+    color: green;
+    font-weight: bold;
+}
+
+.unverified {
+    color: red;
+    font-weight: bold;
+}
+
+.action-icons {
+    font-size: 1rem;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}

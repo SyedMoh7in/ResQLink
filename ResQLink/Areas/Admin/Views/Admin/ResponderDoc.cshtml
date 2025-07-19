@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responder Documents</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+	<link href="~/css/responder-doc.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="doc-container">
+        <div class="doc-header">
+            <h2>Responder Doc</h2>
+            <div class="doc-actions">
+                <button class="add-btn">➕ Add Responder Doc</button>
+                <button class="filter-btn">🔻 Add Filter</button>
+            </div>
+        </div>
+
+        <div class="doc-controls">
+            <label for="entries">
+                Show
+                <select id="entries">
+                    <option value="10">10</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="500">500</option>
+                    <option value="all">All</option>
+                </select>
+                entries
+            </label>
+            <input type="text" placeholder="Search">
+        </div>
+
+        <div class="doc-table-wrapper">
+            <table class="doc-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Driver</th>
+                        <th>Document</th>
+                        <th>Expired Date</th>
+                        <th>Created Date</th>
+                        <th>Verification</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1.</td>
+                        <td>Ismail Yunus</td>
+                        <td>Responder License</td>
+                        <td>2025-07-09</td>
+                        <td>March 02, 2025 10:25am</td>
+                        <td class="unverified">Unverified</td>
+                        <td>
+                            <span class="action-icons">✏️ 🗑️</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2.</td>
+                        <td>Patrick Smith</td>
+                        <td>Responder License</td>
+                        <td>2025-07-09</td>
+                        <td>March 10, 2025 04:25pm</td>
+                        <td class="unverified">Unverified</td>
+                        <td>
+                            <span class="action-icons">✏️ 🗑️</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3.</td>
+                        <td>Asam Hussein</td>
+                        <td>ID Verification</td>
+                        <td>2025-07-09</td>
+                        <td>April 01, 2025 01:45pm</td>
+                        <td class="verified">Verified</td>
+                        <td>
+                            <span class="action-icons">✏️ 🗑️</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4.</td>
+                        <td>Tyson Jackson</td>
+                        <td>Vehicle Inspection Certificate</td>
+                        <td>2025-07-09</td>
+                        <td>April 15, 2025 03:00pm</td>
+                        <td class="verified">Verified</td>
+                        <td>
+                            <span class="action-icons">✏️ 🗑️</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5.</td>
+                        <td>Luis Jane</td>
+                        <td>ID Verification</td>
+                        <td>2025-07-09</td>
+                        <td>April 25, 2025 02:00pm</td>
+                        <td class="verified">Verified</td>
+                        <td>
+                            <span class="action-icons">✏️ 🗑️</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6.</td>
+                        <td>William David</td>
+                        <td>Responder License</td>
+                        <td>2025-07-09</td>
+                        <td>March 25, 2025 02:00pm</td>
+                        <td class="unverified">Unverified</td>
+                        <td>
+                            <span class="action-icons">✏️ 🗑️</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

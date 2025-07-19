@@ -1,0 +1,54 @@
+﻿@model ResQLink.DTOs.LoginDto
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ResQLink Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/login.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <img src="~/images/LoginBackground.jpg" alt="Firetruck Scene" class="background-image" />
+        </div>
+        <div class="right-section">
+            <div class="login-box">
+                <div class="image-stack">
+                    <img src="~/images/LoginImg1.jpg" alt="ResQLink Logo" class="logo" />
+                    <img src="~/images/Logo.png" alt="ResQLink Logo" class="logo" />
+                </div>
+
+                <h2>Welcome</h2>
+                <form method="post" asp-controller="Account" asp-action="Login">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="All" class="text-danger"></div>
+
+                    <label for="Identifier">Login</label>
+                    <input type="text" id="Identifier" name="Identifier" value="@Model?.Identifier" placeholder="Email or phone number" required />
+
+                    <label for="Password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="Password" name="Password" value="@Model?.Password" placeholder="Enter password" required />
+                        <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                    </div>
+
+                    <button type="submit" class="btn">Sign in</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const pwd = document.getElementById("password");
+            pwd.type = pwd.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+</html>

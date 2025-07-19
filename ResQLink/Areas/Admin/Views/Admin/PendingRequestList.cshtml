@@ -1,0 +1,66 @@
+﻿<link href="~/css/pending-request-list.css" rel="stylesheet" />
+<div class="pending-wrapper">
+    <h2>Pending request list</h2>
+
+    <div class="table-controls">
+        <label>
+            Show
+            <select class="entries-select">
+                <option>10</option>
+                <option>50</option>
+                <option>100</option>
+                <option>500</option>
+                <option>All</option>
+            </select>
+            entries
+        </label>
+
+        <div class="right-controls">
+            <button class="filter-btn">
+                <span class="filter-icon">🔻</span>
+                Add Filter
+            </button>
+
+            <div class="search-box">
+                <input type="text" placeholder="Search" />
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="pending-table">
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Available Balance</th>
+                    <th>Request Date</th>
+                    <th>Last Action Date</th>
+                    <th>Bank Details</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="no-data-row">
+                    <td colspan="9">No Data Available</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="entries-info">Showing 0 to 0 of 0 entries</div>
+
+        <div class="pagination">
+            <button class="page-btn">Previous</button>
+            <button class="page-btn active">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">4</button>
+            <button class="page-btn">5</button>
+            <button class="page-btn">6</button>
+            <button class="page-btn">7</button>
+            <span class="dots">......</span>
+            <button class="page-btn">500</button>
+            <button class="page-btn">Next</button>
+        </div>
+    </div>
+</div>

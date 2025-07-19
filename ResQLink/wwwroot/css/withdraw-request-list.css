@@ -1,0 +1,103 @@
+﻿.withdraw-wrapper {
+    padding: 2rem;
+}
+
+    .withdraw-wrapper h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+.table-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.entries-select {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #d70000;
+    border-radius: 8px;
+}
+
+.search-box input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #d70000;
+    border-radius: 20px;
+    outline: none;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    border: 1px solid #d70000;
+    border-radius: 10px;
+    padding: 1rem;
+    background-color: white;
+}
+
+.withdraw-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+    .withdraw-table thead th {
+        border-bottom: 1px solid #d70000;
+        padding: 0.75rem;
+        font-weight: bold;
+        font-size: 0.95rem;
+    }
+
+    .withdraw-table tbody td {
+        padding: 0.75rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .withdraw-table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+    .withdraw-table a {
+        text-decoration: none;
+        color: #d70000;
+        font-weight: 600;
+    }
+
+.status-approved {
+    color: green;
+    font-weight: bold;
+}
+
+.status-declined {
+    color: red;
+    font-weight: bold;
+}
+
+.icon-eye {
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: black;
+}
+
+.action-btn {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.edit {
+    color: #6c63ff;
+}
+
+.delete {
+    color: red;
+}
+
+.entries-info {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}

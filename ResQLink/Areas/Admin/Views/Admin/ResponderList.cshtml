@@ -1,0 +1,100 @@
+﻿@model List<ResQLink.Models.Profile>
+
+@functions {
+    public string GetStatusClass(string status)
+    {
+        return status switch
+        {
+            "Active" => "active",
+            "Pending" => "pending",
+            "Inactive" or "Reject" or "Banned" => "blocked",
+            _ => ""
+        };
+    }
+}
+
+<link href="~/css/responderlist.css" rel="stylesheet" />
+<div class="content-container">
+    <div class="card-wrapper">
+        <div class="card-header">
+            <h3>Responder List</h3>
+            <div class="card-actions">
+                <button class="btn filter-btn">🔍 Filter</button>
+                @* <button class="btn add-btn">➕ Add Responder</button> *@
+                <a asp-action="AddResponder" class="btn add-btn">➕ Add Responder</a>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="table-tools">
+                <div class="entries-control">
+                    <label>
+                        Show
+                        <select class="entries-select">
+                            <option>10</option>
+                            <option>25</option>
+                            <option>50</option>
+                            <option>100</option>
+                        </select>
+                        entries
+                    </label>
+                </div>
+                <div class="search-box">
+                    <label>
+                        Search:
+                        <input type="text" class="search-input" placeholder="Search responders..." />
+                    </label>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="responder-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                            <th>Created Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model != null && Model.Any())
+                        {
+                            int count = 1;
+                            foreach (var responder in Model)
+                            {
+                                <tr>
+                                    <td>@count</td>
+                                    <td>@($"{responder.FirstName} {responder.LastName}")</td>
+                                    <td>@responder.User?.Email</td>
+                                    <td>@responder.PhoneNumber</td>
+                                 @*    <td>
+                                        <span class="badge @(GetStatusClass(responder.Status))">
+                                            @responder.Status
+                                        </span>
+                                    </td>
+                                    <td>@responder.CreatedAt.ToString("MMMM d, yyyy h:mm tt")</td> *@
+                                    <td>
+                                        <a href="#" class="action-icon">✏️</a>
+                                        <a href="#" class="action-icon">🗑️</a>
+                                    </td>
+                                </tr>
+                                count++;
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="7">No responders found.</td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
