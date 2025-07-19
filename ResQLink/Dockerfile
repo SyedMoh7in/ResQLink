@@ -1,19 +1,17 @@
-# Step 1: Build the application
+# Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
-WORKDIR /src
-
-# Copy everything and restore
-COPY . .
-RUN dotnet restore "ResQLink.csproj"
-
-# Build and publish
-RUN dotnet publish "ResQLink.csproj" -c Release -o /app/publish
-
-# Step 2: Runtime image
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 
-COPY --from=build /app/publish .
+COPY ../../ResQLink.sln ./
+COPY . ./
+
+RUN dotnet restore "./ResQLink.csproj"
+RUN dotnet publish "./ResQLink.csproj" -c Release -o /out
+
+# Stage 2: Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
+WORKDIR /app
+COPY --from=build /out ./
 
 ENV ASPNETCORE_URLS=http://+:80
 EXPOSE 80
