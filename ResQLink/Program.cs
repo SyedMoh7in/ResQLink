@@ -5,11 +5,17 @@ using ResQLink.Models;
 using ResQLink.Services;
 using Microsoft.AspNetCore.Identity.UI.Services;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add DbContext
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
 
 // Identity & Services
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
