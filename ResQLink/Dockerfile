@@ -1,24 +1,23 @@
-# Step 1: Build stage using .NET 9 SDK
-FROM mcr.microsoft.com/dotnet/sdk:9.0-preview AS build
+# -------- Stage 1: Build --------
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /app
 
-# Copy project file and restore dependencies
-COPY *.csproj ./
-RUN dotnet restore
+# Copy the solution and restore dependencies
+COPY ResQLink/*.csproj ./ResQLink/
+RUN dotnet restore ResQLink/ResQLink.csproj
 
-# Copy the rest of the source
-COPY . . 
+# Copy everything and publish the app
+COPY . .
+WORKDIR /app/ResQLink
 RUN dotnet publish -c Release -o /out
 
-# Step 2: Runtime stage using .NET 9 ASP.NET runtime
-FROM mcr.microsoft.com/dotnet/aspnet:9.0-preview AS runtime
+# -------- Stage 2: Runtime --------
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
 WORKDIR /app
-
-# Copy the published output
 COPY --from=build /out .
 
-# Expose default port
+# Expose port (optional, if running locally)
 EXPOSE 80
+EXPOSE 443
 
-# Entry point
 ENTRYPOINT ["dotnet", "ResQLink.dll"]
